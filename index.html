@@ -1,0 +1,3038 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>happy 19 myriem !!</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #f7f2e8;
+        font-family: "Caveat", cursive;
+        overflow-x: hidden;
+        cursor: none;
+        min-height: 100vh;
+      }
+
+      /* PAPER TEXTURE */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        background-image:
+          repeating-linear-gradient(
+            transparent,
+            transparent 29px,
+            rgba(160, 185, 210, 0.28) 29px,
+            rgba(160, 185, 210, 0.28) 30px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 29px,
+            transparent 30px
+          );
+        background-size: 100% 30px;
+      }
+      body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 72px;
+        width: 2px;
+        background: rgba(210, 80, 60, 0.25);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* MARGIN HOLES */
+      .holes {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 72px;
+        z-index: 1;
+        pointer-events: none;
+      }
+      .hole {
+        position: absolute;
+        left: 36px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #f7f2e8;
+        border: 2px solid rgba(190, 175, 155, 0.6);
+        transform: translateX(-50%);
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+      }
+
+      /* CUSTOM CURSOR: pen */
+      #cur {
+        position: fixed;
+        pointer-events: none;
+        z-index: 9999;
+        width: 28px;
+        height: 28px;
+        transform: translate(-4px, -4px);
+      }
+
+      /* PAGE WRAP */
+      .page {
+        position: relative;
+        z-index: 2;
+        max-width: 740px;
+        margin: 0 auto;
+        padding: 0 1.4rem 5rem 1.4rem;
+      }
+
+      /* SECTION */
+      .sec {
+        margin: 3rem 0;
+        position: relative;
+      }
+
+      /* WOBBLE ANIMS */
+      @keyframes wob1 {
+        0%,
+        100% {
+          transform: rotate(-3deg) translateY(0);
+        }
+        50% {
+          transform: rotate(4deg) translateY(-8px);
+        }
+      }
+      @keyframes wob2 {
+        0%,
+        100% {
+          transform: rotate(2deg) translateY(-3px);
+        }
+        50% {
+          transform: rotate(-3deg) translateY(7px);
+        }
+      }
+      @keyframes wob3 {
+        0%,
+        100% {
+          transform: rotate(-1.5deg);
+        }
+        50% {
+          transform: rotate(3deg);
+        }
+      }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+      @keyframes scribble {
+        0% {
+          stroke-dashoffset: 1000;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+      @keyframes pop {
+        0% {
+          transform: scale(0) rotate(-20deg);
+          opacity: 0;
+        }
+        70% {
+          transform: scale(1.15) rotate(3deg);
+        }
+        100% {
+          transform: scale(1) rotate(0);
+          opacity: 1;
+        }
+      }
+      @keyframes appear {
+        0% {
+          opacity: 0;
+          transform: scale(0.3) rotate(-30deg);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) rotate(0);
+        }
+      }
+      @keyframes drift {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        50% {
+          transform: translateX(-50%) translateY(12px);
+        }
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes cffall {
+        0% {
+          transform: translateY(0) rotate(0);
+        }
+        100% {
+          transform: translateY(110vh) rotate(540deg);
+          opacity: 0;
+        }
+      }
+      @keyframes pburst {
+        0% {
+          transform: scale(0.4);
+          opacity: 1;
+        }
+        70% {
+          opacity: 1;
+          transform: scale(1.5);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(2);
+        }
+      }
+      @keyframes rise {
+        0% {
+          bottom: -100px;
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          bottom: 110%;
+          opacity: 0;
+        }
+      }
+      @keyframes sway {
+        0%,
+        100% {
+          transform: rotate(-6deg);
+        }
+        50% {
+          transform: rotate(6deg);
+        }
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+      @keyframes shake {
+        0%,
+        100% {
+          transform: rotate(-1deg);
+        }
+        50% {
+          transform: rotate(2deg);
+        }
+      }
+
+      .f1 {
+        animation: wob1 4s ease-in-out infinite;
+      }
+      .f2 {
+        animation: wob2 3.6s ease-in-out infinite;
+      }
+      .f3 {
+        animation: wob3 5s ease-in-out infinite;
+      }
+      .bop {
+        animation: bounce 2.2s ease-in-out infinite;
+      }
+
+      /* DOODLE TAPE */
+      .tape {
+        position: absolute;
+        background: rgba(200, 220, 160, 0.65);
+        border: 1.5px solid rgba(120, 160, 70, 0.4);
+        border-radius: 3px;
+        transform: rotate(-4deg);
+        z-index: 10;
+      }
+
+      /* POST-ITS */
+      .postit {
+        padding: 1.1rem 1.2rem 1.4rem;
+        border-radius: 3px 20px 14px 8px / 12px 8px 18px 14px;
+        border: 2.5px solid #2a1f12;
+        position: relative;
+        box-shadow: 5px 6px 0 #2a1f12;
+        min-height: 130px;
+        transition: transform 0.15s;
+      }
+      .postit:hover {
+        transform: scale(1.03) rotate(0deg) !important;
+      }
+
+      /* SPEECH BUBBLE */
+      .bubble {
+        background: white;
+        border: 2.8px solid #2a1f12;
+        border-radius: 28px 28px 28px 4px;
+        padding: 2rem 1.8rem;
+        box-shadow: 6px 6px 0 #2a1f12;
+        position: relative;
+      }
+
+      /* GAME ZONE */
+      .gzone {
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        position: relative;
+        background: #eeeae2;
+        border-left: 2.8px solid #2a1f12;
+        border-right: 2.8px solid #2a1f12;
+      }
+
+      /* BALLOON */
+      .bsvg {
+        position: absolute;
+        cursor: pointer;
+        user-select: none;
+        animation: rise linear forwards;
+      }
+      .bsvg svg {
+        animation: sway 2s ease-in-out infinite alternate;
+      }
+
+      /* BURST */
+      .pburst {
+        position: absolute;
+        pointer-events: none;
+        animation: pburst 0.6s ease-out forwards;
+      }
+
+      /* CONFETTI */
+      .cbox {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9998;
+        overflow: hidden;
+      }
+      .cf {
+        position: absolute;
+        top: -18px;
+        animation: cffall linear forwards;
+      }
+
+      /* DOODLE BTN */
+      .doodle-btn {
+        display: inline-block;
+        cursor: pointer;
+        filter: drop-shadow(5px 5px 0 #2a1f12);
+        transition:
+          filter 0.15s,
+          transform 0.15s;
+      }
+      .doodle-btn:hover {
+        filter: drop-shadow(7px 7px 0 #2a1f12);
+        transform: translateY(-2px);
+      }
+      .doodle-btn:active {
+        filter: drop-shadow(2px 2px 0 #2a1f12);
+        transform: translateY(2px);
+      }
+
+      /* VIBE POLAROIDS */
+      .vcard {
+        display: inline-block;
+        transition: transform 0.2s;
+      }
+      .vcard:hover {
+        transform: rotate(0deg) scale(1.09) !important;
+      }
+
+      /* MUSIC PLAYER */
+      #mplayer {
+        position: fixed;
+        bottom: 1.2rem;
+        right: 1.2rem;
+        z-index: 100;
+        cursor: pointer;
+        filter: drop-shadow(4px 5px 0 rgba(0, 0, 0, 0.18));
+        transition:
+          filter 0.2s,
+          transform 0.15s;
+      }
+      #mplayer:hover {
+        filter: drop-shadow(6px 7px 0 rgba(0, 0, 0, 0.22));
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cbox" id="cbox"></div>
+
+    <!-- MARGIN HOLES -->
+    <div class="holes" id="holes"></div>
+
+    <!-- CUSTOM CURSOR -->
+    <svg id="cur" viewBox="0 0 28 28" fill="none">
+      <path
+        d="M6 24 L9 10 Q10 5 14 4 Q18 3 19 7 L22 18 Z"
+        fill="#fdf9f0"
+        stroke="#2a1f12"
+        stroke-width="1.8"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M14 4 Q18 3 19 7 L22 18 L19 16 Z"
+        fill="#e8d8c0"
+        stroke="#2a1f12"
+        stroke-width="1.4"
+        stroke-linejoin="round"
+      />
+      <circle cx="14" cy="21" r="2.5" fill="#c96b52" />
+      <path
+        d="M13 23 L12 27"
+        stroke="#2a1f12"
+        stroke-width="1.4"
+        stroke-linecap="round"
+      />
+    </svg>
+
+    <!-- MUSIC PLAYER (cassette) -->
+    <svg
+      id="mplayer"
+      viewBox="0 0 120 78"
+      width="120"
+      height="78"
+      fill="none"
+      onclick="toggleMusic()"
+    >
+      <path
+        d="M10 16 Q8 4 20 4 L100 4 Q112 4 110 16 L112 62 Q112 74 100 74 L20 74 Q8 74 10 62Z"
+        fill="#fdf5d0"
+        stroke="#2a1f12"
+        stroke-width="2.4"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M26 24 Q24 16 32 16 L88 16 Q96 16 94 24 L96 52 Q96 58 88 58 L32 58 Q24 58 26 52Z"
+        fill="white"
+        stroke="#2a1f12"
+        stroke-width="1.8"
+      />
+      <circle
+        cx="44"
+        cy="38"
+        r="11"
+        fill="#ede8e0"
+        stroke="#2a1f12"
+        stroke-width="1.7"
+      />
+      <circle
+        cx="44"
+        cy="38"
+        r="6"
+        fill="white"
+        stroke="#2a1f12"
+        stroke-width="1.4"
+      />
+      <g id="r1" style="transform-origin: 44px 38px">
+        <line
+          x1="44"
+          y1="27"
+          x2="44"
+          y2="32"
+          stroke="#2a1f12"
+          stroke-width="1.4"
+          stroke-linecap="round"
+        />
+        <line
+          x1="54"
+          y1="32.5"
+          x2="50.5"
+          y2="35"
+          stroke="#2a1f12"
+          stroke-width="1.4"
+          stroke-linecap="round"
+        />
+        <line
+          x1="54"
+          y1="43.5"
+          x2="50.5"
+          y2="41"
+          stroke="#2a1f12"
+          stroke-width="1.4"
+          stroke-linecap="round"
+        />
+      </g>
+      <circle cx="44" cy="38" r="2.5" fill="#c96b52" />
+      <circle
+        cx="76"
+        cy="38"
+        r="11"
+        fill="#ede8e0"
+        stroke="#2a1f12"
+        stroke-width="1.7"
+      />
+      <circle
+        cx="76"
+        cy="38"
+        r="6"
+        fill="white"
+        stroke="#2a1f12"
+        stroke-width="1.4"
+      />
+      <g id="r2" style="transform-origin: 76px 38px">
+        <line
+          x1="76"
+          y1="27"
+          x2="76"
+          y2="32"
+          stroke="#2a1f12"
+          stroke-width="1.4"
+          stroke-linecap="round"
+        />
+        <line
+          x1="86"
+          y1="32.5"
+          x2="82.5"
+          y2="35"
+          stroke="#2a1f12"
+          stroke-width="1.4"
+          stroke-linecap="round"
+        />
+        <line
+          x1="86"
+          y1="43.5"
+          x2="82.5"
+          y2="41"
+          stroke="#2a1f12"
+          stroke-width="1.4"
+          stroke-linecap="round"
+        />
+      </g>
+      <circle cx="76" cy="38" r="2.5" fill="#c96b52" />
+      <path
+        d="M38 32 Q60 27 72 32"
+        stroke="#2a1f12"
+        stroke-width="1.2"
+        fill="none"
+      />
+      <circle
+        cx="18"
+        cy="14"
+        r="4"
+        fill="#ede8e0"
+        stroke="#2a1f12"
+        stroke-width="1.3"
+      />
+      <line x1="16" y1="12" x2="20" y2="16" stroke="#2a1f12" stroke-width="1" />
+      <circle
+        cx="102"
+        cy="14"
+        r="4"
+        fill="#ede8e0"
+        stroke="#2a1f12"
+        stroke-width="1.3"
+      />
+      <line
+        x1="100"
+        y1="12"
+        x2="104"
+        y2="16"
+        stroke="#2a1f12"
+        stroke-width="1"
+      />
+      <g id="pico">
+        <path
+          d="M54 28 L54 48 L67 38Z"
+          fill="#b5c9a8"
+          stroke="#2a1f12"
+          stroke-width="1.4"
+          stroke-linejoin="round"
+        />
+      </g>
+      <g id="paus" style="display: none">
+        <rect
+          x="53"
+          y="28"
+          width="5"
+          height="20"
+          rx="1.5"
+          fill="#c96b52"
+          stroke="#2a1f12"
+          stroke-width="1.1"
+        />
+        <rect
+          x="62"
+          y="28"
+          width="5"
+          height="20"
+          rx="1.5"
+          fill="#c96b52"
+          stroke="#2a1f12"
+          stroke-width="1.1"
+        />
+      </g>
+    </svg>
+
+    <div class="page">
+      <!-- ===================== HERO ===================== -->
+      <div
+        style="
+          min-height: 96vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 2rem;
+          position: relative;
+          padding-top: 3rem;
+        "
+      >
+        <!-- TOP-LEFT corner doodles -->
+        <svg
+          style="
+            position: absolute;
+            top: 10px;
+            left: 0;
+            width: 170px;
+            height: 155px;
+          "
+          viewBox="0 0 170 155"
+          fill="none"
+        >
+          <!-- big wobbly star -->
+          <path
+            d="M38 26 L41 37 L53 37 L43.5 44.5 L47 56 L38 48.5 L29 56 L32.5 44.5 L23 37 L35 37Z"
+            fill="#fdf5d0"
+            stroke="#d4a820"
+            stroke-width="2.2"
+            stroke-linejoin="round"
+          />
+          <!-- 3 erratic small dots -->
+          <circle cx="78" cy="14" r="4" fill="#c96b52" />
+          <circle cx="88" cy="22" r="2.5" fill="#c96b52" opacity=".5" />
+          <circle cx="70" cy="25" r="3" fill="#c96b52" opacity=".35" />
+          <!-- wobbly circle -->
+          <path
+            d="M130 68 Q148 54 148 72 Q148 92 130 88 Q112 84 112 70 Q112 56 130 68Z"
+            fill="none"
+            stroke="#8b7bc8"
+            stroke-width="2.2"
+            stroke-linecap="round"
+          />
+          <!-- cross doodle -->
+          <path
+            d="M96 46 L106 56 M106 46 L96 56"
+            stroke="#c96b52"
+            stroke-width="2.4"
+            stroke-linecap="round"
+          />
+          <!-- squiggle -->
+          <path
+            d="M10 108 Q22 96 34 108 Q46 120 58 108 Q70 96 82 108"
+            stroke="#b5c9a8"
+            stroke-width="2.2"
+            fill="none"
+            stroke-linecap="round"
+          />
+          <!-- tiny sun -->
+          <circle
+            cx="148"
+            cy="128"
+            r="10"
+            fill="#fdf5d0"
+            stroke="#d4a820"
+            stroke-width="1.8"
+          />
+          <line
+            x1="148"
+            y1="113"
+            x2="148"
+            y2="109"
+            stroke="#d4a820"
+            stroke-width="1.6"
+            stroke-linecap="round"
+          />
+          <line
+            x1="158"
+            y1="118"
+            x2="162"
+            y2="115"
+            stroke="#d4a820"
+            stroke-width="1.6"
+            stroke-linecap="round"
+          />
+          <line
+            x1="163"
+            y1="128"
+            x2="167"
+            y2="128"
+            stroke="#d4a820"
+            stroke-width="1.6"
+            stroke-linecap="round"
+          />
+          <line
+            x1="158"
+            y1="138"
+            x2="162"
+            y2="141"
+            stroke="#d4a820"
+            stroke-width="1.6"
+            stroke-linecap="round"
+          />
+          <line
+            x1="138"
+            y1="118"
+            x2="134"
+            y2="115"
+            stroke="#d4a820"
+            stroke-width="1.6"
+            stroke-linecap="round"
+          />
+          <line
+            x1="133"
+            y1="128"
+            x2="129"
+            y2="128"
+            stroke="#d4a820"
+            stroke-width="1.6"
+            stroke-linecap="round"
+          />
+        </svg>
+
+        <!-- TOP-RIGHT corner doodles -->
+        <svg
+          style="
+            position: absolute;
+            top: 10px;
+            right: 0;
+            width: 170px;
+            height: 155px;
+          "
+          viewBox="0 0 170 155"
+          fill="none"
+        >
+          <!-- big wobbly heart -->
+          <path
+            d="M86 100 C86 100 46 74 46 50 C46 34 60 26 70 34 C76 38 80 44 86 53 C92 44 96 38 102 34 C112 26 126 34 126 50 C126 74 86 100 86 100Z"
+            fill="#faeae5"
+            stroke="#c96b52"
+            stroke-width="2.4"
+            stroke-linejoin="round"
+          />
+          <!-- sparkle top right -->
+          <line
+            x1="134"
+            y1="14"
+            x2="134"
+            y2="30"
+            stroke="#d4a820"
+            stroke-width="2.2"
+            stroke-linecap="round"
+          />
+          <line
+            x1="126"
+            y1="22"
+            x2="142"
+            y2="22"
+            stroke="#d4a820"
+            stroke-width="2.2"
+            stroke-linecap="round"
+          />
+          <line
+            x1="127"
+            y1="15"
+            x2="141"
+            y2="29"
+            stroke="#d4a820"
+            stroke-width="1.6"
+            stroke-linecap="round"
+          />
+          <line
+            x1="141"
+            y1="15"
+            x2="127"
+            y2="29"
+            stroke="#d4a820"
+            stroke-width="1.6"
+            stroke-linecap="round"
+          />
+          <!-- dotted ring -->
+          <circle
+            cx="32"
+            cy="46"
+            r="18"
+            stroke="#c4b8e8"
+            stroke-width="1.8"
+            stroke-dasharray="4 3.5"
+            fill="none"
+          />
+          <circle
+            cx="32"
+            cy="46"
+            r="10"
+            stroke="#c4b8e8"
+            stroke-width="1.2"
+            stroke-dasharray="3 3"
+            fill="none"
+          />
+          <!-- little leaf -->
+          <path
+            d="M24 128 Q30 110 46 118 Q30 122 24 128Z"
+            fill="#b5c9a8"
+            stroke="#5a8a44"
+            stroke-width="1.6"
+          />
+          <path
+            d="M24 128 L34 118"
+            stroke="#5a8a44"
+            stroke-width="1.3"
+            stroke-linecap="round"
+          />
+        </svg>
+
+        <!-- MAIN TITLE -->
+        <div class="f1" style="text-align: center">
+          <svg viewBox="0 0 540 148" width="min(540px,92vw)" fill="none">
+            <!-- wobbly underline -->
+            <path
+              d="M38 136 Q84 124 140 136 Q196 148 258 132 Q320 116 382 134 Q424 145 502 130"
+              stroke="#c96b52"
+              stroke-width="4.5"
+              fill="none"
+              stroke-linecap="round"
+            />
+            <text
+              x="270"
+              y="68"
+              text-anchor="middle"
+              font-family="'Permanent Marker',cursive"
+              font-size="62"
+              fill="#2a1f12"
+              letter-spacing="-1"
+            >
+              happy
+            </text>
+            <text
+              x="148"
+              y="128"
+              text-anchor="middle"
+              font-family="'Permanent Marker',cursive"
+              font-size="70"
+              fill="#8b7bc8"
+            >
+              19
+            </text>
+            <text
+              x="374"
+              y="128"
+              text-anchor="middle"
+              font-family="'Permanent Marker',cursive"
+              font-size="60"
+              fill="#c96b52"
+            >
+              myriem
+            </text>
+            <!-- mini stars -->
+            <path
+              d="M14 50 L16.2 57 L23.5 57 L17.8 61.5 L20 68 L14 63.5 L8 68 L10.2 61.5 L4.5 57 L11.8 57Z"
+              fill="#fdf5d0"
+              stroke="#d4a820"
+              stroke-width="1.6"
+            />
+            <path
+              d="M522 88 L524.2 95 L531.5 95 L525.8 99.5 L528 106 L522 101.5 L516 106 L518.2 99.5 L512.5 95 L519.8 95Z"
+              fill="#ede9f8"
+              stroke="#8b7bc8"
+              stroke-width="1.6"
+            />
+            <!-- tiny x marks -->
+            <path
+              d="M490 46 L496 52 M496 46 L490 52"
+              stroke="#d4a820"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <path
+              d="M44 100 L50 106 M50 100 L44 106"
+              stroke="#b5c9a8"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
+
+        <!-- POLAROID PHOTO -->
+        <div class="f2" style="position: relative; display: inline-block">
+          <!-- tape strip -->
+          <svg
+            viewBox="0 0 92 26"
+            width="92"
+            height="26"
+            style="
+              position: absolute;
+              top: -13px;
+              left: 50%;
+              transform: translateX(-50%);
+              z-index: 10;
+              filter: drop-shadow(1px 2px 0 rgba(0, 0, 0, 0.08));
+            "
+          >
+            <path
+              d="M5 4 Q6 2 10 2 L82 2 Q86 2 87 5 L87 21 Q86 24 82 24 L10 24 Q6 24 5 21Z"
+              fill="rgba(200,222,162,0.78)"
+              stroke="#7a9850"
+              stroke-width="1.4"
+            />
+            <line
+              x1="22"
+              y1="2"
+              x2="22"
+              y2="24"
+              stroke="rgba(100,140,50,0.18)"
+              stroke-width="1.3"
+            />
+            <line
+              x1="44"
+              y1="2"
+              x2="44"
+              y2="24"
+              stroke="rgba(100,140,50,0.18)"
+              stroke-width="1.3"
+            />
+            <line
+              x1="66"
+              y1="2"
+              x2="66"
+              y2="24"
+              stroke="rgba(100,140,50,0.18)"
+              stroke-width="1.3"
+            />
+          </svg>
+
+          <!-- polaroid frame -->
+          <svg
+            viewBox="0 0 234 276"
+            width="226"
+            height="268"
+            fill="none"
+            style="display: block"
+          >
+            <!-- wobbly polaroid outline -->
+            <path
+              d="M10 16 Q8 3 20 3 L214 3 Q226 3 224 16 L226 248 Q226 260 214 260 L20 260 Q8 260 10 248Z"
+              fill="white"
+              stroke="#2a1f12"
+              stroke-width="2.8"
+              stroke-linejoin="round"
+            />
+            <!-- photo area border (rough) -->
+            <path
+              d="M18 16 L216 17 L215 204 L18 203Z"
+              fill="#ece8df"
+              stroke="#c8bfb0"
+              stroke-width="1.2"
+            />
+            <!-- corner x marks -->
+            <path
+              d="M25 23 L33 31 M33 23 L25 31"
+              stroke="#c4b8e8"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+            <path
+              d="M201 23 L209 31 M209 23 L201 31"
+              stroke="#c4b8e8"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+            <!-- scribble under photo -->
+            <path
+              d="M52 236 Q117 225 183 236"
+              stroke="#d4a820"
+              stroke-width="2"
+              fill="none"
+              stroke-linecap="round"
+            />
+            <!-- tiny stickers -->
+            <path
+              d="M30 244 L31.8 250 L38 250 L33 253.8 L35 260 L30 256.5 L25 260 L27 253.8 L22 250 L28.2 250Z"
+              fill="#fdf5d0"
+              stroke="#d4a820"
+              stroke-width="1.3"
+            />
+            <path
+              d="M196 244 L197.8 250 L204 250 L199 253.8 L201 260 L196 256.5 L191 260 L193 253.8 L188 250 L194.2 250Z"
+              fill="#faeae5"
+              stroke="#c96b52"
+              stroke-width="1.3"
+            />
+          </svg>
+
+          <!-- embedded polaroid photo (static) -->
+          <div
+            style="
+              position: absolute;
+              top: 16px;
+              left: 14px;
+              width: 198px;
+              height: 188px;
+              overflow: hidden;
+              display: block;
+            "
+          >
+            <img
+              id="pimg"
+              src="assets/myriem.jpeg"
+              alt="Myriem"
+              style="
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+              "
+            />
+          </div>
+
+          <!-- caption -->
+          <div
+            style="
+              position: absolute;
+              top: 218px;
+              left: 0;
+              width: 100%;
+              text-align: center;
+            "
+          >
+            <svg
+              viewBox="0 0 226 34"
+              width="214"
+              fill="none"
+              style="display: inline-block"
+            >
+              <text
+                x="113"
+                y="24"
+                text-anchor="middle"
+                font-family="'Permanent Marker',cursive"
+                font-size="16"
+                fill="#5a4830"
+              >
+                myriem, 19 ✦
+              </text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- subtitle scrawl -->
+        <div class="f3" style="text-align: center">
+          <svg viewBox="0 0 400 84" width="min(390px,88vw)" fill="none">
+            <!-- rough box behind text -->
+            <path
+              d="M6 8 Q10 3 18 4 L382 5 Q390 4 394 12 L392 72 Q392 80 382 79 L18 78 Q8 80 6 70Z"
+              fill="rgba(181,201,168,0.22)"
+              stroke="#8aaa78"
+              stroke-width="1.8"
+              stroke-dasharray="6 4"
+            />
+            <text
+              x="200"
+              y="33"
+              text-anchor="middle"
+              font-family="Caveat,cursive"
+              font-size="21"
+              fill="#2a1f12"
+            >
+              you made it girlie!! one year closer to
+            </text>
+            <text
+              x="200"
+              y="59"
+              text-anchor="middle"
+              font-family="Caveat,cursive"
+              font-size="21"
+              fill="#2a1f12"
+            >
+              adulting?? anyway you are THAT girl ✦
+            </text>
+            <!-- little arrow -->
+            <path
+              d="M316 72 Q328 72 332 80"
+              stroke="#c96b52"
+              stroke-width="2"
+              fill="none"
+              stroke-linecap="round"
+            />
+            <path
+              d="M328 76 L332 80 L328 84"
+              stroke="#c96b52"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              fill="none"
+            />
+          </svg>
+        </div>
+
+        <!-- sticker badges -->
+        <div
+          style="
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            justify-content: center;
+          "
+        >
+          <!-- 19 & thriving -->
+          <svg
+            viewBox="0 0 144 50"
+            width="140"
+            height="50"
+            fill="none"
+            class="bop"
+            style="animation-delay: 0s"
+          >
+            <path
+              d="M8 25 Q6 4 22 4 L122 4 Q138 4 136 21 L138 37 Q138 48 122 46 L22 46 Q6 48 8 34Z"
+              fill="#e8f0e4"
+              stroke="#2a1f12"
+              stroke-width="2.4"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M10 48 L8 50 L136 50 L138 48"
+              stroke="#2a1f12"
+              stroke-width="1.4"
+              stroke-linecap="round"
+            />
+            <text
+              x="72"
+              y="30"
+              text-anchor="middle"
+              font-family="Caveat,cursive"
+              font-size="18"
+              font-weight="700"
+              fill="#2a1f12"
+            >
+              19 &amp; thriving
+            </text>
+          </svg>
+          <!-- main character -->
+          <svg viewBox="0 0 160 50" width="155" height="50" fill="none">
+            <path
+              d="M80 4 Q128 2 148 18 Q162 30 154 42 Q146 50 126 48 L34 48 Q14 50 6 38 Q-2 26 14 14 Q34 2 80 4Z"
+              fill="#ede9f8"
+              stroke="#2a1f12"
+              stroke-width="2.4"
+            />
+            <text
+              x="80"
+              y="31"
+              text-anchor="middle"
+              font-family="Caveat,cursive"
+              font-size="18"
+              font-weight="700"
+              fill="#2a1f12"
+            >
+              main character
+            </text>
+          </svg>
+          <!-- glow up era -->
+          <svg
+            viewBox="0 0 136 50"
+            width="132"
+            height="50"
+            fill="none"
+            class="bop"
+            style="animation-delay: 0.4s"
+          >
+            <path
+              d="M8 25 Q5 4 22 4 L114 4 Q130 4 128 21 L130 37 Q130 48 114 46 L22 46 Q5 48 8 34Z"
+              fill="#faeae5"
+              stroke="#2a1f12"
+              stroke-width="2.4"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M10 48 L8 50 L130 50 L132 48"
+              stroke="#2a1f12"
+              stroke-width="1.4"
+              stroke-linecap="round"
+            />
+            <text
+              x="68"
+              y="30"
+              text-anchor="middle"
+              font-family="Caveat,cursive"
+              font-size="18"
+              font-weight="700"
+              fill="#2a1f12"
+            >
+              glow up era
+            </text>
+          </svg>
+          <!-- certified fave -->
+          <svg
+            viewBox="0 0 152 50"
+            width="148"
+            height="50"
+            fill="none"
+            class="bop"
+            style="animation-delay: 0.7s"
+          >
+            <path
+              d="M76 4 Q120 0 140 16 Q156 26 144 38 Q132 48 110 46 L42 46 Q18 48 6 36 Q-6 24 12 12 Q32 0 76 4Z"
+              fill="#fdf5d0"
+              stroke="#2a1f12"
+              stroke-width="2.4"
+            />
+            <text
+              x="76"
+              y="31"
+              text-anchor="middle"
+              font-family="Caveat,cursive"
+              font-size="18"
+              font-weight="700"
+              fill="#2a1f12"
+            >
+              certified fave
+            </text>
+          </svg>
+        </div>
+      </div>
+      <!-- /hero -->
+
+      <!-- ===================== LOVE NOTES ===================== -->
+      <div class="sec">
+        <!-- banner -->
+        <div
+          style="position: relative; text-align: center; margin-bottom: 2rem"
+        >
+          <svg
+            viewBox="0 0 500 66"
+            width="min(490px,92vw)"
+            fill="none"
+            style="display: inline-block"
+          >
+            <!-- pennant left -->
+            <path
+              d="M0 33 L18 18 L18 12 Q18 4 28 4 L472 4 Q482 4 482 14 L482 48 Q482 58 472 58 L28 58 Q18 58 18 48 L18 44 L0 33Z"
+              fill="#f0c4b8"
+              stroke="#2a1f12"
+              stroke-width="2.6"
+              stroke-linejoin="round"
+            />
+            <!-- wobbly underline inside banner -->
+            <path
+              d="M60 48 Q180 42 248 48 Q316 54 440 46"
+              stroke="#c96b52"
+              stroke-width="1.6"
+              fill="none"
+              stroke-linecap="round"
+            />
+            <text
+              x="248"
+              y="38"
+              text-anchor="middle"
+              font-family="'Permanent Marker',cursive"
+              font-size="22"
+              fill="#2a1f12"
+            >
+              things we love about u
+            </text>
+          </svg>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem">
+          <!-- yellow -->
+          <div style="transform: rotate(-3deg)" class="postit">
+            <!-- tape -->
+            <svg
+              viewBox="0 0 72 24"
+              width="72"
+              height="24"
+              style="position: absolute; top: -12px; left: 14px; z-index: 5"
+            >
+              <path
+                d="M4 4 Q5 2 9 2 L63 2 Q67 2 68 5 L68 19 Q67 22 63 22 L9 22 Q5 22 4 19Z"
+                fill="rgba(200,222,162,0.72)"
+                stroke="#7a9850"
+                stroke-width="1.3"
+              />
+              <line
+                x1="20"
+                y1="2"
+                x2="20"
+                y2="22"
+                stroke="rgba(90,130,50,0.18)"
+                stroke-width="1.3"
+              />
+              <line
+                x1="40"
+                y1="2"
+                x2="40"
+                y2="22"
+                stroke="rgba(90,130,50,0.18)"
+                stroke-width="1.3"
+              />
+              <line
+                x1="58"
+                y1="2"
+                x2="58"
+                y2="22"
+                stroke="rgba(90,130,50,0.18)"
+                stroke-width="1.3"
+              />
+            </svg>
+            <div style="background: #fdf5d0">
+              <svg
+                viewBox="0 0 240 112"
+                width="100%"
+                fill="none"
+                style="display: block"
+              >
+                <text
+                  x="120"
+                  y="26"
+                  text-anchor="middle"
+                  font-family="Caveat,cursive"
+                  font-size="19"
+                  fill="#2a1f12"
+                >
+                  you make every room
+                </text>
+                <text
+                  x="120"
+                  y="50"
+                  text-anchor="middle"
+                  font-family="Caveat,cursive"
+                  font-size="19"
+                  fill="#2a1f12"
+                >
+                  feel like the main scene
+                </text>
+                <!-- wobbly underline -->
+                <path
+                  d="M30 57 Q90 50 150 57 Q180 62 210 56"
+                  stroke="#d4a820"
+                  stroke-width="1.6"
+                  fill="none"
+                  stroke-linecap="round"
+                />
+                <!-- drawn heart -->
+                <path
+                  d="M106 84 C106 84 88 72 88 60 C88 51 96 47 103 54 C105 57 105 59 106 62 C107 59 108 56 111 54 C118 47 126 51 126 60 C126 72 106 84 106 84Z"
+                  fill="#faeae5"
+                  stroke="#c96b52"
+                  stroke-width="1.9"
+                />
+                <text
+                  x="136"
+                  y="80"
+                  font-family="Caveat,cursive"
+                  font-size="14"
+                  fill="#c96b52"
+                >
+                  — ur ppl
+                </text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- lavender -->
+          <div
+            style="transform: rotate(3.2deg); margin-top: 1.4rem"
+            class="postit"
+          >
+            <svg
+              viewBox="0 0 62 24"
+              width="62"
+              height="24"
+              style="position: absolute; top: -12px; right: 12px; z-index: 5"
+            >
+              <path
+                d="M4 4 Q5 2 8 2 L54 2 Q58 2 58 5 L58 19 Q58 22 54 22 L8 22 Q5 22 4 19Z"
+                fill="rgba(196,182,234,0.7)"
+                stroke="#7a68b8"
+                stroke-width="1.3"
+              />
+              <line
+                x1="16"
+                y1="2"
+                x2="16"
+                y2="22"
+                stroke="rgba(120,96,176,0.18)"
+                stroke-width="1.3"
+              />
+              <line
+                x1="32"
+                y1="2"
+                x2="32"
+                y2="22"
+                stroke="rgba(120,96,176,0.18)"
+                stroke-width="1.3"
+              />
+              <line
+                x1="48"
+                y1="2"
+                x2="48"
+                y2="22"
+                stroke="rgba(120,96,176,0.18)"
+                stroke-width="1.3"
+              />
+            </svg>
+            <div style="background: #ede9f8">
+              <svg
+                viewBox="0 0 240 112"
+                width="100%"
+                fill="none"
+                style="display: block"
+              >
+                <text
+                  x="120"
+                  y="26"
+                  text-anchor="middle"
+                  font-family="Caveat,cursive"
+                  font-size="19"
+                  fill="#2a1f12"
+                >
+                  your laugh is literally
+                </text>
+                <text
+                  x="120"
+                  y="50"
+                  text-anchor="middle"
+                  font-family="Caveat,cursive"
+                  font-size="19"
+                  fill="#2a1f12"
+                >
+                  contagious (scientifically)
+                </text>
+                <path
+                  d="M28 57 Q90 50 152 57 Q180 62 212 56"
+                  stroke="#8b7bc8"
+                  stroke-width="1.6"
+                  fill="none"
+                  stroke-linecap="round"
+                />
+                <!-- star -->
+                <path
+                  d="M104 80 L106.5 88 L115 88 L108.5 93 L111 101 L104 96 L97 101 L99.5 93 L93 88 L101.5 88Z"
+                  fill="#fdf5d0"
+                  stroke="#d4a820"
+                  stroke-width="1.8"
+                />
+                <text
+                  x="130"
+                  y="92"
+                  font-family="Caveat,cursive"
+                  font-size="14"
+                  fill="#8b7bc8"
+                >
+                  — science
+                </text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- sage green -->
+          <div style="transform: rotate(-2deg)" class="postit">
+            <svg
+              viewBox="0 0 62 24"
+              width="62"
+              height="24"
+              style="position: absolute; top: -12px; left: 20px; z-index: 5"
+            >
+              <path
+                d="M4 4 Q5 2 8 2 L54 2 Q58 2 58 5 L58 19 Q58 22 54 22 L8 22 Q5 22 4 19Z"
+                fill="rgba(178,214,162,0.7)"
+                stroke="#5a9050"
+                stroke-width="1.3"
+              />
+              <line
+                x1="16"
+                y1="2"
+                x2="16"
+                y2="22"
+                stroke="rgba(80,140,60,0.18)"
+                stroke-width="1.3"
+              />
+              <line
+                x1="32"
+                y1="2"
+                x2="32"
+                y2="22"
+                stroke="rgba(80,140,60,0.18)"
+                stroke-width="1.3"
+              />
+              <line
+                x1="48"
+                y1="2"
+                x2="48"
+                y2="22"
+                stroke="rgba(80,140,60,0.18)"
+                stroke-width="1.3"
+              />
+            </svg>
+            <div style="background: #e4f0de">
+              <svg
+                viewBox="0 0 240 112"
+                width="100%"
+                fill="none"
+                style="display: block"
+              >
+                <text
+                  x="120"
+                  y="26"
+                  text-anchor="middle"
+                  font-family="Caveat,cursive"
+                  font-size="19"
+                  fill="#2a1f12"
+                >
+                  still funniest in the gc
+                </text>
+                <text
+                  x="120"
+                  y="50"
+                  text-anchor="middle"
+                  font-family="Caveat,cursive"
+                  font-size="19"
+                  fill="#2a1f12"
+                >
+                  no debate at all
+                </text>
+                <path
+                  d="M28 57 Q80 50 152 57 Q190 63 212 56"
+                  stroke="#5a9050"
+                  stroke-width="1.6"
+                  fill="none"
+                  stroke-linecap="round"
+                />
+                <!-- chat bubble hand drawn -->
+                <path
+                  d="M86 65 Q85 58 92 58 L134 58 Q141 58 141 65 L141 82 Q141 88 134 88 L98 88 L90 96 L91 88 Q86 88 86 82Z"
+                  fill="white"
+                  stroke="#2a1f12"
+                  stroke-width="1.8"
+                />
+                <circle cx="104" cy="73" r="3.2" fill="#2a1f12" />
+                <circle cx="113" cy="73" r="3.2" fill="#2a1f12" />
+                <circle cx="122" cy="73" r="3.2" fill="#2a1f12" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- blush pink -->
+          <div
+            style="transform: rotate(3.8deg); margin-top: 1rem"
+            class="postit"
+          >
+            <svg
+              viewBox="0 0 72 24"
+              width="72"
+              height="24"
+              style="position: absolute; top: -12px; right: 10px; z-index: 5"
+            >
+              <path
+                d="M4 4 Q5 2 9 2 L63 2 Q67 2 68 5 L68 19 Q67 22 63 22 L9 22 Q5 22 4 19Z"
+                fill="rgba(238,190,178,0.72)"
+                stroke="#b05848"
+                stroke-width="1.3"
+              />
+              <line
+                x1="18"
+                y1="2"
+                x2="18"
+                y2="22"
+                stroke="rgba(176,88,72,0.18)"
+                stroke-width="1.3"
+              />
+              <line
+                x1="38"
+                y1="2"
+                x2="38"
+                y2="22"
+                stroke="rgba(176,88,72,0.18)"
+                stroke-width="1.3"
+              />
+              <line
+                x1="56"
+                y1="2"
+                x2="56"
+                y2="22"
+                stroke="rgba(176,88,72,0.18)"
+                stroke-width="1.3"
+              />
+            </svg>
+            <div style="background: #faeae5">
+              <svg
+                viewBox="0 0 240 112"
+                width="100%"
+                fill="none"
+                style="display: block"
+              >
+                <text
+                  x="120"
+                  y="26"
+                  text-anchor="middle"
+                  font-family="Caveat,cursive"
+                  font-size="19"
+                  fill="#2a1f12"
+                >
+                  19 looks SO good on
+                </text>
+                <text
+                  x="120"
+                  y="50"
+                  text-anchor="middle"
+                  font-family="Caveat,cursive"
+                  font-size="19"
+                  fill="#2a1f12"
+                >
+                  you just saying
+                </text>
+                <path
+                  d="M28 57 Q80 50 148 57 Q188 63 212 56"
+                  stroke="#c96b52"
+                  stroke-width="1.6"
+                  fill="none"
+                  stroke-linecap="round"
+                />
+                <!-- sparkle burst -->
+                <line
+                  x1="106"
+                  y1="68"
+                  x2="106"
+                  y2="87"
+                  stroke="#d4a820"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                />
+                <line
+                  x1="96.5"
+                  y1="77.5"
+                  x2="115.5"
+                  y2="77.5"
+                  stroke="#d4a820"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                />
+                <line
+                  x1="99"
+                  y1="71"
+                  x2="113"
+                  y2="85"
+                  stroke="#d4a820"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+                <line
+                  x1="113"
+                  y1="71"
+                  x2="99"
+                  y2="85"
+                  stroke="#d4a820"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+                <text
+                  x="132"
+                  y="81"
+                  font-family="Caveat,cursive"
+                  font-size="14"
+                  fill="#c96b52"
+                >
+                  — ur mirror
+                </text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================== BALLOON GAME ===================== -->
+      <div class="sec">
+        <!-- title -->
+        <div style="text-align: center; margin-bottom: 1rem">
+          <svg
+            viewBox="0 0 420 60"
+            width="min(410px,92vw)"
+            fill="none"
+            style="display: inline-block"
+          >
+            <path
+              d="M14 30 L5 16 L14 8 Q14 4 24 4 L396 4 Q406 4 406 14 L406 44 Q406 56 396 56 L24 56 Q14 56 14 44 L5 44 L14 30Z"
+              fill="#c4b8e8"
+              stroke="#2a1f12"
+              stroke-width="2.6"
+              stroke-linejoin="round"
+            />
+            <text
+              x="210"
+              y="36"
+              text-anchor="middle"
+              font-family="'Permanent Marker',cursive"
+              font-size="20"
+              fill="#2a1f12"
+            >
+              pop exactly 19 balloons!
+            </text>
+          </svg>
+        </div>
+
+        <!-- hint -->
+        <div style="text-align: center; margin-bottom: 0.8rem">
+          <svg
+            viewBox="0 0 300 42"
+            width="min(292px,82vw)"
+            fill="none"
+            style="display: inline-block"
+          >
+            <path
+              d="M8 21 Q7 4 22 4 L278 4 Q293 4 292 20 Q293 38 278 38 L22 38 Q7 38 8 22Z"
+              fill="white"
+              stroke="#2a1f12"
+              stroke-width="1.8"
+              stroke-dasharray="6 3.5"
+            />
+            <text
+              x="150"
+              y="27"
+              text-anchor="middle"
+              font-family="Caveat,cursive"
+              font-size="17"
+              fill="#6a5a48"
+            >
+              pop 19 to unlock a surprise!
+            </text>
+          </svg>
+        </div>
+
+        <!-- score display -->
+        <div style="margin-bottom: 0.6rem">
+          <svg viewBox="0 0 260 44" width="260" height="44" fill="none">
+            <text
+              x="10"
+              y="30"
+              font-family="Caveat,cursive"
+              font-size="24"
+              fill="#6a5a48"
+            >
+              popped:
+            </text>
+            <text
+              x="130"
+              y="34"
+              font-family="'Permanent Marker',cursive"
+              font-size="32"
+              fill="#c96b52"
+              id="scn"
+            >
+              0
+            </text>
+            <text
+              x="163"
+              y="30"
+              font-family="Caveat,cursive"
+              font-size="24"
+              fill="#6a5a48"
+            >
+              / 19
+            </text>
+            <text
+              x="204"
+              y="30"
+              font-family="Caveat,cursive"
+              font-size="20"
+              fill="#8b7bc8"
+              id="gst"
+            ></text>
+          </svg>
+        </div>
+
+        <!-- top border -->
+        <svg
+          viewBox="0 0 660 26"
+          width="100%"
+          height="26"
+          fill="none"
+          preserveAspectRatio="none"
+          style="display: block"
+        >
+          <path
+            d="M10 20 Q16 4 28 4 L632 4 Q644 4 650 18"
+            stroke="#2a1f12"
+            stroke-width="2.8"
+            stroke-linecap="round"
+            fill="none"
+          />
+          <!-- little tick marks -->
+          <line
+            x1="80"
+            y1="6"
+            x2="80"
+            y2="12"
+            stroke="#2a1f12"
+            stroke-width="1.5"
+          />
+          <line
+            x1="180"
+            y1="5"
+            x2="180"
+            y2="11"
+            stroke="#2a1f12"
+            stroke-width="1.5"
+          />
+          <line
+            x1="280"
+            y1="5"
+            x2="280"
+            y2="11"
+            stroke="#2a1f12"
+            stroke-width="1.5"
+          />
+          <line
+            x1="380"
+            y1="5"
+            x2="380"
+            y2="11"
+            stroke="#2a1f12"
+            stroke-width="1.5"
+          />
+          <line
+            x1="480"
+            y1="5"
+            x2="480"
+            y2="11"
+            stroke="#2a1f12"
+            stroke-width="1.5"
+          />
+          <line
+            x1="580"
+            y1="5"
+            x2="580"
+            y2="11"
+            stroke="#2a1f12"
+            stroke-width="1.5"
+          />
+        </svg>
+
+        <!-- game zone -->
+        <div class="gzone" id="gz">
+          <svg
+            style="
+              position: absolute;
+              inset: 0;
+              width: 100%;
+              height: 100%;
+              pointer-events: none;
+            "
+            viewBox="0 0 660 300"
+            preserveAspectRatio="xMidYMid slice"
+            fill="none"
+          >
+            <!-- clouds -->
+            <path
+              d="M54 234 Q54 214 74 212 Q76 198 92 198 Q102 190 116 197 Q132 190 142 204 Q156 206 156 222 Q156 237 142 240 L70 240 Q54 240 54 226Z"
+              fill="white"
+              stroke="#d0cac0"
+              stroke-width="1.6"
+            />
+            <path
+              d="M456 255 Q456 239 472 237 Q474 226 486 226 Q494 220 505 224 Q520 220 528 232 Q541 234 541 247 Q541 260 528 262 L472 262 Q456 262 456 249Z"
+              fill="white"
+              stroke="#d0cac0"
+              stroke-width="1.6"
+            />
+            <!-- sun scribble -->
+            <circle
+              cx="606"
+              cy="52"
+              r="22"
+              fill="#fdf5d0"
+              stroke="#d4a820"
+              stroke-width="2.2"
+            />
+            <line
+              x1="606"
+              y1="22"
+              x2="606"
+              y2="15"
+              stroke="#d4a820"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <line
+              x1="630"
+              y1="30"
+              x2="635"
+              y2="25"
+              stroke="#d4a820"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <line
+              x1="636"
+              y1="52"
+              x2="643"
+              y2="52"
+              stroke="#d4a820"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <line
+              x1="630"
+              y1="74"
+              x2="635"
+              y2="79"
+              stroke="#d4a820"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <line
+              x1="582"
+              y1="30"
+              x2="577"
+              y2="25"
+              stroke="#d4a820"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <line
+              x1="576"
+              y1="52"
+              x2="569"
+              y2="52"
+              stroke="#d4a820"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <!-- wavy grass -->
+            <path
+              d="M0 282 Q22 268 44 282 Q66 296 88 282 Q110 268 132 282 Q154 296 176 282 Q198 268 220 282 Q242 296 264 282 Q286 268 308 282 Q330 296 352 282 Q374 268 396 282 Q418 296 440 282 Q462 268 484 282 Q506 296 528 282 Q550 268 572 282 Q594 296 616 282 Q638 268 660 282 L660 300 L0 300Z"
+              fill="#c8ddb8"
+            />
+            <!-- flowers -->
+            <circle
+              cx="85"
+              cy="276"
+              r="4.5"
+              fill="#f0c4b8"
+              stroke="#2a1f12"
+              stroke-width="1.2"
+            />
+            <circle
+              cx="246"
+              cy="274"
+              r="4.5"
+              fill="#c4b8e8"
+              stroke="#2a1f12"
+              stroke-width="1.2"
+            />
+            <circle
+              cx="408"
+              cy="276"
+              r="4.5"
+              fill="#fdf5d0"
+              stroke="#2a1f12"
+              stroke-width="1.2"
+            />
+            <circle
+              cx="562"
+              cy="275"
+              r="4"
+              fill="#f0c4b8"
+              stroke="#2a1f12"
+              stroke-width="1.2"
+            />
+            <text
+              x="330"
+              y="150"
+              text-anchor="middle"
+              font-family="Caveat,cursive"
+              font-size="22"
+              fill="#b0a898"
+              id="glbl"
+            >
+              press start!
+            </text>
+          </svg>
+        </div>
+
+        <!-- bottom border -->
+        <svg
+          viewBox="0 0 660 26"
+          width="100%"
+          height="26"
+          fill="none"
+          preserveAspectRatio="none"
+          style="display: block"
+        >
+          <path
+            d="M10 6 Q16 22 28 22 L632 22 Q644 22 650 8"
+            stroke="#2a1f12"
+            stroke-width="2.8"
+            stroke-linecap="round"
+            fill="none"
+          />
+          <line
+            x1="80"
+            y1="14"
+            x2="80"
+            y2="20"
+            stroke="#2a1f12"
+            stroke-width="1.5"
+          />
+          <line
+            x1="180"
+            y1="15"
+            x2="180"
+            y2="21"
+            stroke="#2a1f12"
+            stroke-width="1.5"
+          />
+          <line
+            x1="280"
+            y1="15"
+            x2="280"
+            y2="21"
+            stroke="#2a1f12"
+            stroke-width="1.5"
+          />
+          <line
+            x1="380"
+            y1="15"
+            x2="380"
+            y2="21"
+            stroke="#2a1f12"
+            stroke-width="1.5"
+          />
+          <line
+            x1="480"
+            y1="15"
+            x2="480"
+            y2="21"
+            stroke="#2a1f12"
+            stroke-width="1.5"
+          />
+          <line
+            x1="580"
+            y1="15"
+            x2="580"
+            y2="21"
+            stroke="#2a1f12"
+            stroke-width="1.5"
+          />
+        </svg>
+
+        <!-- start button -->
+        <div style="text-align: center; margin-top: 0.9rem">
+          <svg
+            id="gbtn"
+            viewBox="0 0 194 58"
+            width="194"
+            height="58"
+            fill="none"
+            style="cursor: pointer; display: inline-block"
+            onclick="handleBtn()"
+          >
+            <!-- wobbly button shape -->
+            <path
+              d="M12 29 Q10 8 28 5 L166 5 Q184 5 182 24 L184 40 Q184 54 166 52 L28 52 Q10 52 12 40Z"
+              fill="#b5c9a8"
+              stroke="#2a1f12"
+              stroke-width="2.6"
+              stroke-linejoin="round"
+            />
+            <!-- shadow edge -->
+            <path
+              d="M16 54 Q14 56 28 56 L166 56 Q184 56 186 52"
+              stroke="#2a1f12"
+              stroke-width="1.8"
+              fill="none"
+              stroke-linecap="round"
+            />
+            <text
+              x="97"
+              y="34"
+              text-anchor="middle"
+              font-family="'Permanent Marker',cursive"
+              font-size="20"
+              fill="#2a1f12"
+              id="btxt"
+            >
+              start game!
+            </text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- ===================== VIBE BOARD ===================== -->
+      <div class="sec">
+        <div style="text-align: center; margin-bottom: 2rem">
+          <svg
+            viewBox="0 0 428 60"
+            width="min(418px,92vw)"
+            fill="none"
+            style="display: inline-block"
+          >
+            <path
+              d="M14 30 Q12 5 30 4 L398 4 Q414 4 414 20 L416 44 Q416 56 398 56 L30 56 Q12 56 14 42Z"
+              fill="#e4f0de"
+              stroke="#2a1f12"
+              stroke-width="2.6"
+            />
+            <!-- leaves -->
+            <path
+              d="M36 30 Q44 17 56 26 Q44 28 36 30Z"
+              fill="#b5c9a8"
+              stroke="#2a1f12"
+              stroke-width="1.5"
+            />
+            <path
+              d="M392 30 Q400 17 412 26 Q400 28 392 30Z"
+              fill="#b5c9a8"
+              stroke="#2a1f12"
+              stroke-width="1.5"
+              transform="scale(-1,1) translate(-784,0)"
+            />
+            <text
+              x="214"
+              y="37"
+              text-anchor="middle"
+              font-family="'Permanent Marker',cursive"
+              font-size="21"
+              fill="#2a1f12"
+            >
+              myriem's vibe board
+            </text>
+          </svg>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+          "
+        >
+          <!-- polaroid 1: flower -->
+          <div class="vcard" style="transform: rotate(-4.5deg)">
+            <svg viewBox="0 0 136 168" width="130" height="162" fill="none">
+              <!-- polaroid body wobbly -->
+              <path
+                d="M6 10 Q5 2 12 2 L124 2 Q131 2 130 10 L131 154 Q131 162 124 162 L12 162 Q5 162 6 154Z"
+                fill="white"
+                stroke="#2a1f12"
+                stroke-width="2.4"
+              />
+              <!-- photo area -->
+              <path
+                d="M13 11 L123 12 L122 112 L13 111Z"
+                fill="#e8f0e4"
+                stroke="#d0c8b0"
+                stroke-width="1"
+              />
+              <!-- tape on top -->
+              <path
+                d="M48 2 Q50 -2 52 -2 L88 -2 Q90 -2 90 2 L90 13 Q89 17 87 17 L49 17 Q47 17 48 13Z"
+                fill="rgba(200,222,162,0.72)"
+                stroke="#7a9850"
+                stroke-width="1.1"
+              />
+              <!-- flower doodle -->
+              <circle
+                cx="68"
+                cy="60"
+                r="10"
+                fill="#f0c4b8"
+                stroke="#2a1f12"
+                stroke-width="1.8"
+              />
+              <ellipse
+                cx="68"
+                cy="40"
+                rx="7"
+                ry="12"
+                fill="#faeae5"
+                stroke="#2a1f12"
+                stroke-width="1.5"
+              />
+              <ellipse
+                cx="68"
+                cy="80"
+                rx="7"
+                ry="12"
+                fill="#faeae5"
+                stroke="#2a1f12"
+                stroke-width="1.5"
+              />
+              <ellipse
+                cx="48"
+                cy="60"
+                rx="7"
+                ry="12"
+                fill="#faeae5"
+                stroke="#2a1f12"
+                stroke-width="1.5"
+                transform="rotate(90 68 60)"
+              />
+              <ellipse
+                cx="88"
+                cy="60"
+                rx="7"
+                ry="12"
+                fill="#faeae5"
+                stroke="#2a1f12"
+                stroke-width="1.5"
+                transform="rotate(90 68 60)"
+              />
+              <ellipse
+                cx="54"
+                cy="44"
+                rx="6"
+                ry="9"
+                fill="#fdf5d0"
+                stroke="#2a1f12"
+                stroke-width="1.2"
+                transform="rotate(45 68 60)"
+              />
+              <ellipse
+                cx="82"
+                cy="44"
+                rx="6"
+                ry="9"
+                fill="#fdf5d0"
+                stroke="#2a1f12"
+                stroke-width="1.2"
+                transform="rotate(-45 68 60)"
+              />
+              <circle cx="28" cy="100" r="3.5" fill="#b5c9a8" />
+              <circle cx="108" cy="100" r="3.5" fill="#b5c9a8" />
+              <!-- caption -->
+              <text
+                x="68"
+                y="140"
+                text-anchor="middle"
+                font-family="Caveat,cursive"
+                font-size="14"
+                fill="#6a5a48"
+              >
+                forever blooming
+              </text>
+              <path
+                d="M34 145 Q68 140 102 145"
+                stroke="#d4a820"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+
+          <!-- polaroid 2: stars -->
+          <div
+            class="vcard"
+            style="transform: rotate(2.5deg); margin-top: 20px"
+          >
+            <svg viewBox="0 0 136 168" width="130" height="162" fill="none">
+              <path
+                d="M6 10 Q5 2 12 2 L124 2 Q131 2 130 10 L131 154 Q131 162 124 162 L12 162 Q5 162 6 154Z"
+                fill="white"
+                stroke="#2a1f12"
+                stroke-width="2.4"
+              />
+              <path
+                d="M13 11 L123 12 L122 112 L13 111Z"
+                fill="#ede9f8"
+                stroke="#c4b8e8"
+                stroke-width="1"
+              />
+              <path
+                d="M48 2 Q50 -2 52 -2 L88 -2 Q90 -2 90 2 L90 13 Q89 17 87 17 L49 17 Q47 17 48 13Z"
+                fill="rgba(196,182,234,0.68)"
+                stroke="#7a68b8"
+                stroke-width="1.1"
+              />
+              <!-- big star -->
+              <path
+                d="M68 20 L71.5 32 L84 32 L74.5 39.5 L78 51 L68 44 L58 51 L61.5 39.5 L52 32 L64.5 32Z"
+                fill="#fdf5d0"
+                stroke="#d4a820"
+                stroke-width="1.9"
+              />
+              <!-- small stars -->
+              <path
+                d="M36 72 L38 79 L45 79 L39.5 83.5 L41.5 90 L36 86 L30.5 90 L32.5 83.5 L27 79 L34 79Z"
+                fill="#fdf5d0"
+                stroke="#d4a820"
+                stroke-width="1.4"
+              />
+              <path
+                d="M100 72 L102 79 L109 79 L103.5 83.5 L105.5 90 L100 86 L94.5 90 L96.5 83.5 L91 79 L98 79Z"
+                fill="#fdf5d0"
+                stroke="#d4a820"
+                stroke-width="1.4"
+              />
+              <!-- connecting dots -->
+              <circle
+                cx="42"
+                cy="102"
+                r="3.5"
+                fill="#c4b8e8"
+                stroke="#2a1f12"
+                stroke-width="1"
+              />
+              <circle
+                cx="68"
+                cy="102"
+                r="3.5"
+                fill="#c4b8e8"
+                stroke="#2a1f12"
+                stroke-width="1"
+              />
+              <circle
+                cx="94"
+                cy="102"
+                r="3.5"
+                fill="#c4b8e8"
+                stroke="#2a1f12"
+                stroke-width="1"
+              />
+              <text
+                x="68"
+                y="140"
+                text-anchor="middle"
+                font-family="Caveat,cursive"
+                font-size="14"
+                fill="#6a5a48"
+              >
+                main character
+              </text>
+              <path
+                d="M34 145 Q68 140 102 145"
+                stroke="#8b7bc8"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+
+          <!-- polaroid 3: music notes -->
+          <div
+            class="vcard"
+            style="transform: rotate(-2.8deg); margin-top: 10px"
+          >
+            <svg viewBox="0 0 136 168" width="130" height="162" fill="none">
+              <path
+                d="M6 10 Q5 2 12 2 L124 2 Q131 2 130 10 L131 154 Q131 162 124 162 L12 162 Q5 162 6 154Z"
+                fill="white"
+                stroke="#2a1f12"
+                stroke-width="2.4"
+              />
+              <path
+                d="M13 11 L123 12 L122 112 L13 111Z"
+                fill="#fdf5d0"
+                stroke="#e8ddb0"
+                stroke-width="1"
+              />
+              <path
+                d="M48 2 Q50 -2 52 -2 L88 -2 Q90 -2 90 2 L90 13 Q89 17 87 17 L49 17 Q47 17 48 13Z"
+                fill="rgba(240,196,184,0.68)"
+                stroke="#c06050"
+                stroke-width="1.1"
+              />
+              <!-- music notes -->
+              <path
+                d="M50 72 L50 46 L86 40 L86 66"
+                stroke="#c96b52"
+                stroke-width="2.4"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <ellipse
+                cx="47"
+                cy="74"
+                rx="8"
+                ry="6"
+                fill="#c96b52"
+                stroke="#2a1f12"
+                stroke-width="1.4"
+                transform="rotate(-15 47 74)"
+              />
+              <ellipse
+                cx="83"
+                cy="68"
+                rx="8"
+                ry="6"
+                fill="#8b7bc8"
+                stroke="#2a1f12"
+                stroke-width="1.4"
+                transform="rotate(-15 83 68)"
+              />
+              <!-- sound waves -->
+              <path
+                d="M22 99 Q35 92 48 99 Q61 106 74 99 Q87 92 100 99 Q113 106 126 99"
+                stroke="#b5c9a8"
+                stroke-width="1.8"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <text
+                x="68"
+                y="140"
+                text-anchor="middle"
+                font-family="Caveat,cursive"
+                font-size="14"
+                fill="#6a5a48"
+              >
+                playlist era
+              </text>
+              <path
+                d="M34 145 Q68 140 102 145"
+                stroke="#c96b52"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+
+          <!-- polaroid 4: moon -->
+          <div
+            class="vcard"
+            style="transform: rotate(3.8deg); margin-top: 22px"
+          >
+            <svg viewBox="0 0 136 168" width="130" height="162" fill="none">
+              <path
+                d="M6 10 Q5 2 12 2 L124 2 Q131 2 130 10 L131 154 Q131 162 124 162 L12 162 Q5 162 6 154Z"
+                fill="white"
+                stroke="#2a1f12"
+                stroke-width="2.4"
+              />
+              <path
+                d="M13 11 L123 12 L122 112 L13 111Z"
+                fill="#faeae5"
+                stroke="#e8c8b8"
+                stroke-width="1"
+              />
+              <path
+                d="M48 2 Q50 -2 52 -2 L88 -2 Q90 -2 90 2 L90 13 Q89 17 87 17 L49 17 Q47 17 48 13Z"
+                fill="rgba(200,216,172,0.7)"
+                stroke="#8a9860"
+                stroke-width="1.1"
+              />
+              <!-- moon crescent doodle -->
+              <path
+                d="M84 28 Q68 34 64 48 Q60 63 70 74 Q80 84 96 80 Q78 80 73 66 Q68 52 80 42 Q82 38 84 28Z"
+                fill="#c4b8e8"
+                stroke="#2a1f12"
+                stroke-width="2"
+              />
+              <!-- stars around -->
+              <path
+                d="M102 26 L104 33 L111 33 L105.5 37.5 L107.5 44 L102 40 L96.5 44 L98.5 37.5 L93 33 L100 33Z"
+                fill="white"
+                stroke="#d4a820"
+                stroke-width="1.5"
+              />
+              <path
+                d="M36 50 L37.5 55.5 L43 55.5 L38.5 59 L40 64.5 L36 61.5 L32 64.5 L33.5 59 L29 55.5 L34.5 55.5Z"
+                fill="white"
+                stroke="#d4a820"
+                stroke-width="1.3"
+              />
+              <circle cx="32" cy="26" r="3" fill="#d4a820" />
+              <circle cx="106" cy="82" r="2.5" fill="#d4a820" />
+              <circle cx="46" cy="102" r="3" fill="#d4a820" />
+              <path
+                d="M20 102 Q32 96 44 102 Q56 108 68 102"
+                stroke="#8b7bc8"
+                stroke-width="1.7"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <text
+                x="68"
+                y="140"
+                text-anchor="middle"
+                font-family="Caveat,cursive"
+                font-size="14"
+                fill="#6a5a48"
+              >
+                late night thoughts
+              </text>
+              <path
+                d="M34 145 Q68 140 102 145"
+                stroke="#8b7bc8"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+
+          <!-- polaroid 5: tea mug -->
+          <div
+            class="vcard"
+            style="transform: rotate(-3.2deg); margin-top: 8px"
+          >
+            <svg viewBox="0 0 136 168" width="130" height="162" fill="none">
+              <path
+                d="M6 10 Q5 2 12 2 L124 2 Q131 2 130 10 L131 154 Q131 162 124 162 L12 162 Q5 162 6 154Z"
+                fill="white"
+                stroke="#2a1f12"
+                stroke-width="2.4"
+              />
+              <path
+                d="M13 11 L123 12 L122 112 L13 111Z"
+                fill="#e8f0e4"
+                stroke="#c8d8b8"
+                stroke-width="1"
+              />
+              <path
+                d="M48 2 Q50 -2 52 -2 L88 -2 Q90 -2 90 2 L90 13 Q89 17 87 17 L49 17 Q47 17 48 13Z"
+                fill="rgba(240,196,184,0.65)"
+                stroke="#c06050"
+                stroke-width="1.1"
+              />
+              <!-- mug body -->
+              <path
+                d="M38 54 Q37 45 45 45 L92 45 Q100 45 99 54 L100 99 Q100 108 92 108 L45 108 Q37 108 38 100Z"
+                fill="white"
+                stroke="#2a1f12"
+                stroke-width="2"
+              />
+              <!-- handle -->
+              <path
+                d="M99 60 Q116 60 116 73 Q116 86 99 84"
+                stroke="#2a1f12"
+                stroke-width="2"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <!-- tea fill -->
+              <path
+                d="M40 80 Q40 78 45 78 L92 78 Q98 78 98 80 L98 99 Q98 107 92 108 L45 108 Q39 108 40 100Z"
+                fill="#f5dd8a"
+                opacity="0.6"
+              />
+              <!-- steam wiggles -->
+              <path
+                d="M54 38 Q57 28 54 18"
+                stroke="#c4b8e8"
+                stroke-width="2.2"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <path
+                d="M68 36 Q71 25 68 14"
+                stroke="#c4b8e8"
+                stroke-width="2.2"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <path
+                d="M82 38 Q85 28 82 18"
+                stroke="#c4b8e8"
+                stroke-width="2.2"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <text
+                x="68"
+                y="140"
+                text-anchor="middle"
+                font-family="Caveat,cursive"
+                font-size="14"
+                fill="#6a5a48"
+              >
+                cozy szn
+              </text>
+              <path
+                d="M34 145 Q68 140 102 145"
+                stroke="#5a9050"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================== FINAL MESSAGE ===================== -->
+      <div class="sec">
+        <div style="text-align: center; margin-bottom: 2rem">
+          <svg
+            viewBox="0 0 520 60"
+            width="min(510px,92vw)"
+            fill="none"
+            style="display: inline-block"
+          >
+            <path
+              d="M18 30 Q15 5 34 4 L486 4 Q502 4 502 22 L504 42 Q504 56 486 56 L34 56 Q15 56 18 40Z"
+              fill="#fdf5d0"
+              stroke="#2a1f12"
+              stroke-width="2.6"
+            />
+            <text
+              x="261"
+              y="37"
+              text-anchor="middle"
+              font-family="'Permanent Marker',cursive"
+              font-size="20"
+              fill="#2a1f12"
+            >
+              ok final message (psq 3yit majatnich creativity)
+            </text>
+          </svg>
+        </div>
+
+        <!-- speech bubble -->
+        <div class="bubble">
+          <!-- tail -->
+          <svg
+            viewBox="0 0 44 34"
+            width="44"
+            height="34"
+            style="position: absolute; bottom: -33px; left: 24px"
+            fill="none"
+          >
+            <path
+              d="M2 2 L40 2 L12 32Z"
+              fill="white"
+              stroke="#2a1f12"
+              stroke-width="2.6"
+              stroke-linejoin="round"
+            />
+            <line
+              x1="3"
+              y1="2"
+              x2="11"
+              y2="2"
+              stroke="white"
+              stroke-width="5"
+            />
+          </svg>
+
+          <svg viewBox="0 0 600 224" width="100%" fill="none">
+            <text
+              x="300"
+              y="34"
+              text-anchor="middle"
+              font-family="Caveat,cursive"
+              font-size="22"
+              fill="#2a1f12"
+            >
+              myriem, you are literally one of a kind.
+            </text>
+            <text
+              x="300"
+              y="64"
+              text-anchor="middle"
+              font-family="Caveat,cursive"
+              font-size="22"
+              fill="#2a1f12"
+            >
+              19 is just the beginning and honestly?
+            </text>
+            <text
+              x="300"
+              y="94"
+              text-anchor="middle"
+              font-family="Caveat,cursive"
+              font-size="22"
+              fill="#2a1f12"
+            >
+              the universe better watch out fr.
+            </text>
+            <!-- divider squiggle -->
+            <path
+              d="M110 112 Q200 103 300 111 Q400 119 490 112"
+              stroke="#b5c9a8"
+              stroke-width="2.4"
+              fill="none"
+              stroke-linecap="round"
+            />
+            <text
+              x="300"
+              y="140"
+              text-anchor="middle"
+              font-family="Caveat,cursive"
+              font-size="22"
+              fill="#2a1f12"
+            >
+              wishing u the most chaotic good year —
+            </text>
+            <text
+              x="300"
+              y="170"
+              text-anchor="middle"
+              font-family="Caveat,cursive"
+              font-size="22"
+              fill="#2a1f12"
+            >
+              good music, stupid laughs at 2am,
+            </text>
+            <text
+              x="300"
+              y="200"
+              text-anchor="middle"
+              font-family="Caveat,cursive"
+              font-size="22"
+              fill="#c96b52"
+            >
+              and everything u actually deserve ♡
+            </text>
+            <!-- tiny doodles -->
+            <path
+              d="M62 192 Q54 200 62 208"
+              stroke="#d4a820"
+              stroke-width="2"
+              fill="none"
+              stroke-linecap="round"
+            />
+            <path
+              d="M58 204 L62 208 L66 204"
+              stroke="#d4a820"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              fill="none"
+            />
+            <path
+              d="M538 160 L542 166 M542 160 L538 166"
+              stroke="#d4a820"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
+
+        <!-- 19 stars row -->
+        <svg
+          viewBox="0 0 700 106"
+          width="min(700px,98vw)"
+          height="96"
+          fill="none"
+          id="starsvg"
+          style="display: block; margin: 3.6rem auto 0"
+        ></svg>
+
+        <!-- confetti btn -->
+        <div style="text-align: center; margin-top: 2rem" class="bop">
+          <svg
+            viewBox="0 0 256 60"
+            width="250"
+            height="60"
+            fill="none"
+            style="cursor: pointer; display: inline-block"
+            onclick="launchConfetti()"
+            class="doodle-btn"
+          >
+            <path
+              d="M14 30 Q12 7 30 5 L226 5 Q244 5 242 24 L244 42 Q244 56 226 54 L30 54 Q12 54 14 40Z"
+              fill="#c96b52"
+              stroke="#2a1f12"
+              stroke-width="2.8"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M18 56 L14 58 L240 58 L244 54"
+              stroke="#2a1f12"
+              stroke-width="1.8"
+              fill="none"
+              stroke-linecap="round"
+            />
+            <text
+              x="128"
+              y="36"
+              text-anchor="middle"
+              font-family="'Permanent Marker',cursive"
+              font-size="20"
+              fill="white"
+            >
+              tap for confetti!! (btw here is 19 stars for uuuu)
+            </text>
+          </svg>
+        </div>
+
+        <div style="height: 4rem"></div>
+      </div>
+    </div>
+    <!-- /page -->
+
+    <script>
+      // ── CURSOR
+      const cur = document.getElementById("cur");
+      document.addEventListener("mousemove", (e) => {
+        cur.style.left = e.clientX + "px";
+        cur.style.top = e.clientY + "px";
+      });
+
+      // ── MARGIN HOLES
+      (() => {
+        const h = document.getElementById("holes");
+        const positions = [
+          80, 240, 400, 560, 720, 880, 1040, 1200, 1360, 1520, 1680, 1840, 2000,
+          2160, 2320, 2480,
+        ];
+        positions.forEach((y) => {
+          const d = document.createElement("div");
+          d.className = "hole";
+          d.style.top = y + "px";
+          h.appendChild(d);
+        });
+      })();
+
+      // ── DRAW 19 STARS
+      (() => {
+        const sv = document.getElementById("starsvg");
+        const sc = ["#d4a820", "#c96b52", "#8b7bc8", "#b5c9a8", "#f0c4b8"];
+        const sf = ["#fdf5d0", "#faeae5", "#ede9f8", "#e4f0de", "#faeee8"];
+        let html = "";
+        for (let i = 0; i < 19; i++) {
+          const col = i % 10,
+            row = Math.floor(i / 10);
+          const x = 36 + col * 66 + (Math.random() - 0.5) * 10;
+          const y = 24 + row * 52 + (Math.random() - 0.5) * 10;
+          let pts = "";
+          const rot = (Math.random() - 0.5) * 40;
+          for (let k = 0; k < 10; k++) {
+            const a = ((k * 36 - 90 + rot) * Math.PI) / 180;
+            const r = k % 2 === 0 ? 16 : 7;
+            pts += `${(x + Math.cos(a) * r).toFixed(1)},${(y + Math.sin(a) * r).toFixed(1)} `;
+          }
+          const d = (i * 0.08).toFixed(2);
+          html += `<polygon points="${pts}" fill="${sf[i % 5]}" stroke="${sc[i % 5]}" stroke-width="2" style="animation:appear .4s ${d}s ease backwards"/>`;
+        }
+        sv.innerHTML = html;
+      })();
+
+      // ── PHOTO LOAD
+      function loadPic(inp) {
+        if (!inp.files || !inp.files[0]) return;
+        const r = new FileReader();
+        r.onload = (e) => {
+          const img = document.getElementById("pimg");
+          img.src = e.target.result;
+          img.style.display = "block";
+          document.getElementById("pph").style.display = "none";
+        };
+        r.readAsDataURL(inp.files[0]);
+      }
+
+      // ── MUSIC PLAYER (audio element, no generated music)
+      let playing = false;
+      function syncMusicUI(isPlaying) {
+        playing = isPlaying;
+        document.getElementById("pico").style.display = isPlaying
+          ? "none"
+          : "block";
+        document.getElementById("paus").style.display = isPlaying
+          ? "block"
+          : "none";
+        document.getElementById("r1").style.animation = isPlaying
+          ? "spin 1.2s linear infinite"
+          : "none";
+        document.getElementById("r2").style.animation = isPlaying
+          ? "spin 0.9s linear infinite"
+          : "none";
+      }
+
+      function toggleMusic() {
+        const aud = document.getElementById("maud");
+        if (!aud) return;
+        if (playing) {
+          aud.pause();
+          syncMusicUI(false);
+        } else {
+          aud
+            .play()
+            .then(() => syncMusicUI(true))
+            .catch(() => syncMusicUI(false));
+        }
+      }
+
+      window.addEventListener("load", () => {
+        const aud = document.getElementById("maud");
+        if (!aud) return;
+        aud
+          .play()
+          .then(() => syncMusicUI(true))
+          .catch(() => syncMusicUI(false));
+      });
+
+      // ── BALLOON GAME
+      let score = 0,
+        gActive = false,
+        spId = null;
+      const GOAL = 19;
+      const gz = document.getElementById("gz");
+      const bcols = [
+        ["#faeae5", "#c96b52"],
+        ["#ede9f8", "#8b7bc8"],
+        ["#e4f0de", "#5a8a4a"],
+        ["#fdf5d0", "#d4a820"],
+        ["#dce8f4", "#4a7cb8"],
+        ["#f0d4e8", "#a04888"],
+      ];
+
+      function handleBtn() {
+        if (!gActive) {
+          score = 0;
+          gActive = true;
+          document.getElementById("scn").textContent = "0";
+          document.getElementById("gst").textContent = "";
+          document.getElementById("btxt").textContent = "playing...";
+          document.getElementById("glbl").style.display = "none";
+          gz.querySelectorAll(".bsvg").forEach((b) => b.remove());
+          spId = setInterval(spawnBalloon, 820);
+        }
+      }
+
+      function spawnBalloon() {
+        if (!gActive) return;
+        const w = document.createElement("div");
+        w.className = "bsvg";
+        const l = 6 + Math.random() * 80;
+        const dur = 3 + Math.random() * 2.8;
+        w.style.cssText = `left:${l}%;bottom:-100px;animation-duration:${dur}s;`;
+        const [f, s] = bcols[Math.floor(Math.random() * bcols.length)];
+        const sw = 1.5 + Math.random() * 0.8;
+        // fully hand-drawn wobbly balloon SVG
+        w.innerHTML = `<svg viewBox="0 0 56 98" width="50" height="88" fill="none" style="animation:sway ${sw}s ease-in-out infinite alternate;">
+    <!-- wobbly balloon body -->
+    <path d="M28 4 Q44 2 50 14 Q58 28 54 42 Q50 56 40 60 Q34 62 28 62 Q22 62 16 60 Q6 56 2 42 Q-2 28 6 14 Q12 2 28 4Z" fill="${f}" stroke="${s}" stroke-width="2.4" stroke-linejoin="round"/>
+    <!-- shine spot -->
+    <ellipse cx="20" cy="22" rx="6" ry="9" fill="rgba(255,255,255,0.38)" transform="rotate(-20 20 22)"/>
+    <!-- knot -->
+    <path d="M24 61 Q28 66 32 61" stroke="${s}" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- string squiggle -->
+    <path d="M28 66 Q31 72 28 79 Q25 85 28 92 Q29 96 28 98" stroke="${s}" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <!-- small x doodle on balloon -->
+    <line x1="36" y1="18" x2="40" y2="22" stroke="${s}" stroke-width="1.4" stroke-linecap="round" opacity=".4"/>
+    <line x1="40" y1="18" x2="36" y2="22" stroke="${s}" stroke-width="1.4" stroke-linecap="round" opacity=".4"/>
+  </svg>`;
+        w.addEventListener("click", (e) => popBalloon(w, e));
+        gz.appendChild(w);
+        setTimeout(
+          () => {
+            if (w.parentNode) w.remove();
+          },
+          dur * 1000 + 400,
+        );
+      }
+
+      function popBalloon(el, e) {
+        if (!gActive) return;
+        const rect = gz.getBoundingClientRect();
+        const x = e.clientX - rect.left,
+          y = e.clientY - rect.top;
+        el.remove();
+        score++;
+        document.getElementById("scn").textContent = score;
+        // hand-drawn burst
+        const b = document.createElement("div");
+        b.className = "pburst";
+        b.style.cssText = `left:${x - 36}px;top:${y - 36}px;`;
+        b.innerHTML = `<svg viewBox="0 0 72 72" width="72" height="72" fill="none">
+    <line x1="36" y1="36" x2="36" y2="6" stroke="#c96b52" stroke-width="2.4" stroke-linecap="round"/>
+    <line x1="36" y1="36" x2="62" y2="36" stroke="#8b7bc8" stroke-width="2.4" stroke-linecap="round"/>
+    <line x1="36" y1="36" x2="36" y2="66" stroke="#d4a820" stroke-width="2.4" stroke-linecap="round"/>
+    <line x1="36" y1="36" x2="10" y2="36" stroke="#b5c9a8" stroke-width="2.4" stroke-linecap="round"/>
+    <line x1="36" y1="36" x2="55" y2="17" stroke="#f0c4b8" stroke-width="2" stroke-linecap="round"/>
+    <line x1="36" y1="36" x2="17" y2="17" stroke="#c96b52" stroke-width="2" stroke-linecap="round"/>
+    <line x1="36" y1="36" x2="55" y2="55" stroke="#8b7bc8" stroke-width="2" stroke-linecap="round"/>
+    <line x1="36" y1="36" x2="17" y2="55" stroke="#d4a820" stroke-width="2" stroke-linecap="round"/>
+    <text x="36" y="40" text-anchor="middle" font-family="Caveat,cursive" font-size="13" fill="#c96b52" font-weight="700">pop!</text>
+  </svg>`;
+        gz.appendChild(b);
+        setTimeout(() => b.remove(), 680);
+
+        if (score >= GOAL) {
+          clearInterval(spId);
+          gActive = false;
+          gz.querySelectorAll(".bsvg").forEach((b) => b.remove());
+          document.getElementById("gst").textContent = "✦ you did it!!";
+          document.getElementById("btxt").textContent = "play again!";
+          document.getElementById("gbtn").onclick = () => {
+            score = 0;
+            gActive = true;
+            document.getElementById("scn").textContent = "0";
+            document.getElementById("gst").textContent = "";
+            document.getElementById("btxt").textContent = "playing...";
+            spId = setInterval(spawnBalloon, 820);
+          };
+          launchConfetti();
+        }
+      }
+
+      // ── CONFETTI
+      const cc = [
+        "#c96b52",
+        "#b5c9a8",
+        "#c4b8e8",
+        "#f5dd8a",
+        "#f0c4b8",
+        "#8b7bc8",
+        "#d4a820",
+      ];
+      function launchConfetti() {
+        const box = document.getElementById("cbox");
+        for (let i = 0; i < 120; i++) {
+          const d = document.createElement("div");
+          d.className = "cf";
+          const c = cc[Math.floor(Math.random() * cc.length)];
+          const sz = 6 + Math.random() * 13;
+          const shp = Math.random() > 0.5 ? "50%" : "3px";
+          d.style.cssText = `left:${Math.random() * 100}vw;width:${sz}px;height:${sz}px;background:${c};border-radius:${shp};animation-duration:${2.2 + Math.random() * 2.4}s;animation-delay:${Math.random() * 0.8}s;`;
+          box.appendChild(d);
+          setTimeout(() => d.remove(), 5000);
+        }
+      }
+
+      // initial confetti burst on load
+      setTimeout(() => launchConfetti(), 500);
+    </script>
+
+    <!-- audio element for the birthday song -->
+    <audio
+      id="maud"
+      src="assets/Myriem’s_Sovereign_Year.mp3"
+      loop
+      autoplay
+      preload="auto"
+    ></audio>
+  </body>
+</html>
